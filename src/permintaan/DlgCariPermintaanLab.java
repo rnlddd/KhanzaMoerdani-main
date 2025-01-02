@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.BackgroundMusic;
 import fungsi.WarnaTable;
+import fungsi.WarnaTablePermintaanLab;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
@@ -141,7 +142,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
                 column.setPreferredWidth(110);
             }
         }
-        tbLabRalan.setDefaultRenderer(Object.class, new WarnaTable());
+        tbLabRalan.setDefaultRenderer(Object.class, new WarnaTablePermintaanLab());
         
         tabMode2=new DefaultTableModel(null,new Object[]{
                 "No.Permintaan","No.Rawat","Pasien","Pemeriksaan","Detail Pemeriksaan","Satuan","Nilai Rujukan","Permintaan","Jam","Sampel","Jam","Hasil",
@@ -251,7 +252,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
                 column.setPreferredWidth(110);
             }
         }
-        tbLabRanap.setDefaultRenderer(Object.class, new WarnaTable());
+        tbLabRanap.setDefaultRenderer(Object.class, new  WarnaTablePermintaanLab());
         
         tabMode4=new DefaultTableModel(null,new Object[]{
                 "No.Permintaan","No.Rawat","Pasien","Pemeriksaan","Detail Pemeriksaan","Satuan","Nilai Rujukan","Permintaan","Jam",
