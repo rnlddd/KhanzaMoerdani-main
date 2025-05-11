@@ -2531,7 +2531,7 @@ public final class RMPenilaianAwalMedisRalanGigi extends javax.swing.JDialog {
         try{
             if(TCari.getText().trim().equals("")){
                 ps=koneksi.prepareStatement(
-                  "SELECT reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir, penilaian_medis_ralan_gigi.kd_dokter,penilaian_medis_ralan_gigi.tanggal,penilaian_medis_ralan_gigi.anamnesis,"
+                 "Select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_gigi.kd_dokter,penilaian_medis_ralan_gigi.tanggal,penilaian_medis_ralan_gigi.anamnesis,"
                 + "penilaian_medis_ralan_gigi.hubungan,penilaian_medis_ralan_gigi.keluhan_utama,penilaian_medis_ralan_gigi.keluhan_tambahan,penilaian_medis_ralan_gigi.rps,penilaian_medis_ralan_gigi.rpd, "
                 + "penilaian_medis_ralan_gigi.rpk,penilaian_medis_ralan_gigi.rpo,penilaian_medis_ralan_gigi.alergi,penilaian_medis_ralan_gigi.pencabutan_terakhir,"
                 + "penilaian_medis_ralan_gigi.lama_pendarahan,penilaian_medis_ralan_gigi.perawatan_gigi,penilaian_medis_ralan_gigi.keadaan,penilaian_medis_ralan_gigi.gcs,"
@@ -2541,14 +2541,13 @@ public final class RMPenilaianAwalMedisRalanGigi extends javax.swing.JDialog {
                 + "penilaian_medis_ralan_gigi.oropharynx,penilaian_medis_ralan_gigi.oropharynx_ket,penilaian_medis_ralan_gigi.gingiva,penilaian_medis_ralan_gigi.gingiva_ket,penilaian_medis_ralan_gigi.pocket,penilaian_medis_ralan_gigi.pocket_ket,"
                 + "penilaian_medis_ralan_gigi.karang,penilaian_medis_ralan_gigi.karang_ket,penilaian_medis_ralan_gigi.sinus,penilaian_medis_ralan_gigi.sinus_ket,"
                 + "penilaian_medis_ralan_gigi.ket_lokalis,penilaian_medis_ralan_gigi.penunjang,penilaian_medis_ralan_gigi.diagnosis,penilaian_medis_ralan_gigi.tata,penilaian_medis_ralan_gigi.konsulrujuk,dokter.nm_dokter "
-                + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
-                 + "INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
-                + "INNER JOIN penilaian_medis_ralan_gigi ON reg_periksa.no_rawat = penilaian_medis_ralan_gigi.no_rawat "
-                + "INNER JOIN dokter ON penilaian_medis_ralan_gigi.kd_dokter = dokter.kd_dokter where "
+                + "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
+                + "inner join penilaian_medis_ralan_gigi on reg_periksa.no_rawat=penilaian_medis_ralan_gigi.no_rawat "
+                + "inner join dokter on penilaian_medis_ralan_gigi.kd_dokter=dokter.kd_dokter where "
                 + "penilaian_medis_ralan_gigi.tanggal between ? and ? order by penilaian_medis_ralan_gigi.tanggal");
             }else{
                 ps=koneksi.prepareStatement(
-                  "SELECT reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir, penilaian_medis_ralan_gigi.kd_dokter,penilaian_medis_ralan_gigi.tanggal,penilaian_medis_ralan_gigi.anamnesis,"
+                  "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_gigi.kd_dokter,penilaian_medis_ralan_gigi.tanggal,penilaian_medis_ralan_gigi.anamnesis,"
                 + "penilaian_medis_ralan_gigi.hubungan,penilaian_medis_ralan_gigi.keluhan_utama,penilaian_medis_ralan_gigi.keluhan_tambahan,penilaian_medis_ralan_gigi.rps,penilaian_medis_ralan_gigi.rpd, "
                 + "penilaian_medis_ralan_gigi.rpk,penilaian_medis_ralan_gigi.rpo,penilaian_medis_ralan_gigi.alergi,penilaian_medis_ralan_gigi.pencabutan_terakhir,"
                 + "penilaian_medis_ralan_gigi.lama_pendarahan,penilaian_medis_ralan_gigi.perawatan_gigi,penilaian_medis_ralan_gigi.keadaan,penilaian_medis_ralan_gigi.gcs,"
@@ -2558,11 +2557,11 @@ public final class RMPenilaianAwalMedisRalanGigi extends javax.swing.JDialog {
                 + "penilaian_medis_ralan_gigi.oropharynx,penilaian_medis_ralan_gigi.oropharynx_ket,penilaian_medis_ralan_gigi.gingiva,penilaian_medis_ralan_gigi.gingiva_ket,penilaian_medis_ralan_gigi.pocket,penilaian_medis_ralan_gigi.pocket_ket,"
                 + "penilaian_medis_ralan_gigi.karang,penilaian_medis_ralan_gigi.karang_ket,penilaian_medis_ralan_gigi.sinus,penilaian_medis_ralan_gigi.sinus_ket,"
                 + "penilaian_medis_ralan_gigi.ket_lokalis,penilaian_medis_ralan_gigi.penunjang,penilaian_medis_ralan_gigi.diagnosis,penilaian_medis_ralan_gigi.tata,penilaian_medis_ralan_gigi.konsulrujuk,dokter.nm_dokter "
-                + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
-                + "INNER JOIN penilaian_medis_ralan_gigi ON reg_periksa.no_rawat = penilaian_medis_ralan_gigi.no_rawat "
-                + "INNER JOIN dokter ON penilaian_medis_ralan_gigi.kd_dokter = dokter.kd_dokter where "
-                + "penilaian_medis_ralan_gigi.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "
-                + "penilaian_medis_ralan_gigi.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_medis_ralan_gigi.tanggal");
+                +  "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
+                +  "inner join penilaian_medis_ralan_gigi on reg_periksa.no_rawat=penilaian_medis_ralan_gigi.no_rawat "
+                +  "inner join dokter on penilaian_medis_ralan_gigi.kd_dokter=dokter.kd_dokter where "
+                +  "penilaian_medis_ralan_gigi.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "
+                +  "penilaian_medis_ralan_gigi.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_medis_ralan_gigi.tanggal");
             }
                 
             try {
@@ -2755,6 +2754,22 @@ public final class RMPenilaianAwalMedisRalanGigi extends javax.swing.JDialog {
         TCari.setText(norwt);
         DTPCari2.setDate(tgl2);    
         isRawat(); 
+         if(Sequel.cariInteger("select count(no_rawat) from pemeriksaan_ralan where no_rawat='"+TNoRw.getText()+"' ")>0){ 
+            KeluhanUtama.setText(Sequel.cariIsi("select keluhan from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+        //    KetFisik.setText(Sequel.cariIsi("select pemeriksaan from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            Diagnosis.setText(Sequel.cariIsi("select penilaian from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            Tatalaksana.setText(Sequel.cariIsi("select rtl from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            Suhu.setText(Sequel.cariIsi("select suhu_tubuh from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            TD.setText(Sequel.cariIsi("select tensi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            BB.setText(Sequel.cariIsi("select berat from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            TB.setText(Sequel.cariIsi("select tinggi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            Nadi.setText(Sequel.cariIsi("select nadi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            RR.setText(Sequel.cariIsi("select respirasi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText())); 
+            GCS.setText(Sequel.cariIsi("select gcs from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+            SPO.setText(Sequel.cariIsi("select SpO2 from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+        }else{
+            
+        }
     }
     
     public void isCek(){

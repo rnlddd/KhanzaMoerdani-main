@@ -1139,6 +1139,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         TPasienCari = new widget.TextBox();
         jLabel37 = new widget.Label();
         cmbStatusBayar = new widget.ComboBox();
+        BtnKetWarna3 = new widget.Button();
 
         WindowInputKamar.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         WindowInputKamar.setName("WindowInputKamar"); // NOI18N
@@ -5695,6 +5696,33 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         panelCari.add(DTPCari4);
+        
+
+
+        BtnKetWarna3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/tasksgroup.png"))); // NOI18N
+        BtnKetWarna3.setMnemonic('K');
+        BtnKetWarna3.setText("Review Tindakan & Obat");
+        BtnKetWarna3.setToolTipText("");
+        BtnKetWarna3.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnKetWarna3.setName("BtnKetWarna3"); // NOI18N
+        BtnKetWarna3.setPreferredSize(new java.awt.Dimension(250, 26));
+        BtnKetWarna3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnKetWarna3ActionPerformed(evt);
+            }
+        });
+        BtnKetWarna3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnKetWarna3KeyPressed(evt);
+            }
+        });
+        panelGlass11.add(BtnKetWarna3);        
+        
+        
+        
+        
+        
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
 
         PanelCariUtama.add(panelCari, java.awt.BorderLayout.PAGE_START);
 
@@ -16762,6 +16790,82 @@ public class DlgKamarInap extends javax.swing.JDialog {
         } 
     }
     
+    
+    private void BtnKetWarna3ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
+                    try {
+                        psanak=koneksi.prepareStatement(
+                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");
+                        try {
+                            psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+                            rs2=psanak.executeQuery();
+                            if(rs2.next()){
+                                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                                DlgKeteranganPenunjangRanap form=new DlgKeteranganPenunjangRanap(null,false);
+                                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                form.setLocationRelativeTo(internalFrame1);
+                                form.setVisible(true);
+                                if(R1.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"));
+                                }else if(R2.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"));
+                                }else if(R3.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"));
+                                }
+                                //                                form.tampil();
+                                this.setCursor(Cursor.getDefaultCursor());
+                            }else{
+                                JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                tbKamIn.requestFocus();
+                            }
+                        } catch(Exception ex){
+                            System.out.println("Notifikasi : "+ex);
+                        }finally{
+                            if(rs2 != null){
+                                rs2.close();
+                            }
+                            if(psanak != null){
+                                psanak.close();
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }else{
+                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                    DlgKeteranganPenunjangRanap form=new DlgKeteranganPenunjangRanap(null,false);
+                    //                    form.isCek();
+                    //                    form.setSize(750,750);
+                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    form.setLocationRelativeTo(internalFrame1);
+                    form.setVisible(true);
+                    if(R1.isSelected()==true){
+                        form.setNoRm(norawat.getText());
+                    }else if(R2.isSelected()==true){
+                        form.setNoRm(norawat.getText());
+                    }else if(R3.isSelected()==true){
+                        form.setNoRm(norawat.getText());
+                    }
+                    //                    form.tampil();
+                    this.setCursor(Cursor.getDefaultCursor());
+                }
+            }
+        }
+    }
+ 
+    
+    private void BtnKetWarna3KeyPressed(java.awt.event.KeyEvent evt) {                                        
+        // TODO add your handling code here:
+    }                                       
+
+    
+    
+    
     /**
     * @param args the command line arguments
     */
@@ -16793,6 +16897,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
     private widget.Button BtnIn;
     private widget.Button BtnKeluar;
     private widget.Button BtnKeluar4;
+    private widget.Button BtnKetWarna3;
     private widget.Button BtnOut;
     private widget.Button BtnPrint;
     private widget.Button BtnPrint5;

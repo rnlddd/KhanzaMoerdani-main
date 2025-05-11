@@ -6746,6 +6746,7 @@ public final class DlgReg extends javax.swing.JDialog {
         });
         FormInput.add(TBiaya);
         TBiaya.setBounds(298, 132, 94, 23);
+        
 
         KdDokter.setHighlighter(null);
         KdDokter.setName("KdDokter"); // NOI18N
@@ -6966,6 +6967,140 @@ public final class DlgReg extends javax.swing.JDialog {
                 tbPetugas2KeyPressed(evt);
             }
         });
+        
+ //////////////////////////////////////////////////////////////////////PENAMBAHAN BARU//////////////////////////////////////////////////////////////////
+ 
+ 
+   btn_riwayat = new widget.Button();
+        btn_riwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/barralan.png"))); // NOI18N
+        btn_riwayat.setMnemonic('S');
+        btn_riwayat.setText("Lihat Kunjungan");
+        btn_riwayat.setToolTipText("Alt+S");
+        btn_riwayat.setName("btn_riwayat"); // NOI18N
+        btn_riwayat.setPreferredSize(new java.awt.Dimension(100, 30));
+        btn_riwayat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_riwayatActionPerformed(evt);
+            }
+        });
+        btn_riwayat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_riwayatKeyPressed(evt);
+            }
+        });
+        FormInput.add(btn_riwayat);
+        btn_riwayat.setBounds(880, 10, 180, 30);
+        
+        nomor_antrian = new javax.swing.JLabel();
+        nomor_antrian.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        nomor_antrian.setForeground(new java.awt.Color(204, 0, 0));
+        nomor_antrian.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomor_antrian.setText("0");
+        nomor_antrian.setToolTipText("Display nomor Antrian");
+        nomor_antrian.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nomor_antrian.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nomor_antrian.setName("nomor_antrian"); // NOI18N
+        FormInput.add(nomor_antrian);
+        nomor_antrian.setBounds(900, 40, 150, 70);
+        
+        Label_Loket = new widget.Label();
+        Label_Loket.setText("Loket :");
+        Label_Loket.setName("Label_Loket"); // NOI18N
+        FormInput.add(Label_Loket);
+        Label_Loket.setBounds(900, 130, 40, 23);
+
+        loket_antrian = new javax.swing.JComboBox<>();
+        loket_antrian.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        loket_antrian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LOKET 1", "LOKET 2", "LOKET 3", "LOKET 4", "LOKET 5" }));
+        loket_antrian.setName("loket_antrian"); // NOI18N
+        FormInput.add(loket_antrian);
+        loket_antrian.setBounds(942, 130, 105, 20);
+
+        Label_Sisa_Antrian = new widget.Label();
+        Label_Sisa_Antrian.setText("SISA ANTRIAN :");
+        Label_Sisa_Antrian.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Label_Sisa_Antrian.setName("Label_Sisa_Antrian"); // NOI18N
+        FormInput.add(Label_Sisa_Antrian);
+        Label_Sisa_Antrian.setBounds(1060, 130, 90, 23);
+
+        Ulang = new widget.Button();
+        Ulang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/refresh.png"))); // NOI18N
+        Ulang.setMnemonic('M');
+        Ulang.setText("PANGGIL ULANG");
+        Ulang.setToolTipText("Alt+M");
+        Ulang.setGlassColor(new java.awt.Color(153, 255, 204));
+        Ulang.setName("Ulang"); // NOI18N
+        Ulang.setPreferredSize(new java.awt.Dimension(100, 30));
+        Ulang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UlangActionPerformed(evt);
+            }
+        });
+        Ulang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UlangKeyPressed(evt);
+            }
+        });
+        FormInput.add(Ulang);
+        Ulang.setBounds(1060, 90, 190, 30);
+
+        Panggil = new widget.Button();
+        Panggil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user.png"))); // NOI18N
+        Panggil.setMnemonic('M');
+        Panggil.setText("PANGGIL BERIKUTNYA");
+        Panggil.setToolTipText("Alt+M");
+        Panggil.setGlassColor(new java.awt.Color(153, 255, 204));
+        Panggil.setName("Panggil"); // NOI18N
+        Panggil.setPreferredSize(new java.awt.Dimension(100, 30));
+        Panggil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PanggilActionPerformed(evt);
+            }
+        });
+        Panggil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PanggilKeyPressed(evt);
+            }
+        });
+        FormInput.add(Panggil);
+        Panggil.setBounds(1060, 50, 190, 30);
+
+        sisa_antrian = new widget.Label();
+        sisa_antrian.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        sisa_antrian.setText("0");
+        sisa_antrian.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        sisa_antrian.setName("sisa_antrian"); // NOI18N
+        FormInput.add(sisa_antrian);
+        sisa_antrian.setBounds(1155, 130, 50, 23);
+
+        PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
+        
+        
+        BtnPanggilPasien = new widget.Button();
+        BtnPanggilPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user.png"))); // NOI18N
+        BtnPanggilPasien.setMnemonic('M');
+        BtnPanggilPasien.setText("PANGGIL NAMA PASIEN");
+        BtnPanggilPasien.setToolTipText("Alt+M");
+        BtnPanggilPasien.setGlassColor(new java.awt.Color(153, 255, 204));
+        BtnPanggilPasien.setName("BtnPanggilPasien"); // NOI18N
+        BtnPanggilPasien.setPreferredSize(new java.awt.Dimension(200, 30));
+        BtnPanggilPasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPanggilPasienActionPerformed(evt);
+            }
+        });
+        BtnPanggilPasien.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnPanggilPasienKeyPressed(evt);
+            }
+        });
+        panelGlass7.add(BtnPanggilPasien);
+        
+        
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        
         Scroll1.setViewportView(tbPetugas2);
 
         TabRawat.addTab("Rujukan Internal Poli", Scroll1);
@@ -15030,6 +15165,87 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }
     
+        private void UlangActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+        Sequel.mengedit("antripendaftaran_nomor","nomor='"+nomor_antrian.getText()+"'","status='1', loket='"+loket_antrian.getSelectedItem().toString()+"'");
+    }                                     
+
+    private void UlangKeyPressed(java.awt.event.KeyEvent evt) {                                 
+        // TODO add your handling code here:
+    }                                
+
+    private void PanggilActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        if(Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' and date_format(jam, '%Y-%m-%d')=current_date ORDER BY jam ASC LIMIT 1").equals("")){
+            JOptionPane.showMessageDialog(null,"Antrian sudah habis mbak, jangan di pencet terus");
+        }else{
+            nomor_antrian.setText(Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' and date_format(jam, '%Y-%m-%d')=current_date ORDER BY nomor ASC LIMIT 1"));
+            sisa_antrian.setText(Sequel.cariIsi("SELECT (COUNT(nomor)-1), status from antripendaftaran_nomor WHERE status='0' and date_format(jam, '%Y-%m-%d')=current_date "));
+            Sequel.mengedit("antripendaftaran_nomor","nomor='"+nomor_antrian.getText()+"' and date_format(jam,'%Y-%m-%d')=current_date","status='1',loket='"+loket_antrian.getSelectedItem().toString()+"'");
+            //and date_format(jam,'%Y-%m-%d')=current_date
+        }
+    }                                       
+
+    private void PanggilKeyPressed(java.awt.event.KeyEvent evt) {                                   
+        // TODO add your handling code here:
+    } 
+    
+     private void btn_riwayatActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMRiwayatPerawatan resume=new RMRiwayatPerawatan(null,true);
+        resume.setNoRm(TNoRM.getText(),TPasien.getText());
+        resume.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        resume.setLocationRelativeTo(internalFrame1);
+        resume.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }                                           
+
+    private void btn_riwayatKeyPressed(java.awt.event.KeyEvent evt) {                                       
+        // TODO add your handling code here:
+    } 
+    
+    
+    private void BtnPanggilPasienActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+      if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+             if(tbPetugas.getSelectedRow()!= -1){
+                Date tanggalSekarang = new Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String tanggalFormatted = dateFormat.format(tanggalSekarang);
+//                Sequel.queryu("delete from antriadmisi where kd_loket='1'");
+//                Sequel.queryu("insert into antriadmisi values('1','loket','1','"+TNoRM.getText()+"','"+ tanggalFormatted +"')");
+                String kdloket="";
+                if(loket_antrian.getSelectedItem().toString()=="LOKET 1"){
+                    kdloket = "1";
+                }else if(loket_antrian.getSelectedItem().toString()=="LOKET 2"){
+                    kdloket = "2";
+                }else if(loket_antrian.getSelectedItem().toString()=="LOKET 3"){
+                    kdloket = "3";
+                }else if(loket_antrian.getSelectedItem().toString()=="LOKET 4"){
+                    kdloket = "4";
+                }else if(loket_antrian.getSelectedItem().toString()=="LOKET 5"){
+                    kdloket = "5";
+                }else if(loket_antrian.getSelectedItem().toString()=="LOKET 6"){
+                    kdloket = "6";
+                }
+                Sequel.queryu("delete from antriadmisi where kd_loket='"+kdloket+"'");
+                Sequel.queryu("insert into antriadmisi values('"+kdloket+"','loket','1','"+TNoRM.getText()+"','"+ tanggalFormatted +"')");
+            
+             }
+        }
+    }                                                
+
+    private void BtnPanggilPasienKeyPressed(java.awt.event.KeyEvent evt) {                                            
+        // TODO add your handling code here:
+    }                                        
+
+        
+    
     /**
     * @param args the command line arguments
     */
@@ -15463,12 +15679,23 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private javax.swing.JMenuItem ppSuratPRI;
     private widget.Table tbPetugas;
     private widget.Table tbPetugas2;
+    
     // End of variables declaration//GEN-END:variables
     private javax.swing.JMenuItem MnSkorBromagePascaAnestesi,MnPenilaianRisikoJatuhDewasa,MnPenilaianRisikoJatuhAnak,MnPenilaianRisikoJatuhLansia,MnPenilaianRisikoJatuhNeonatus,MnPenilaianRisikoJatuhGeriatri,MnPenilaianRisikoJatuhPsikiatri,MnPenilaianLanjutanSkriningFungsional,
             MnPenilaianPreInduksi,MnHasilPemeriksaanUSGUrologi,MnHasilPemeriksaanUSGGynecologi,MnHasilPemeriksaanEKG,MnSudahTerbitSEP,MnPenatalaksanaanTerapiOkupasi,MnHasilPemeriksaanUSGNeonatus,MnHasilEndoskopiFaringLaring,MnHasilEndoskopiHidung,MnHasilEndoskopiTelinga,
             MnPenilaianPasienImunitasRendah,MnCatatanKeseimbanganCairan,MnCatatanObservasiCHBP,MnCatatanObservasiInduksiPersalinan,MnPermintaanKonsultasiMedik,MnDataOperasi,MnDataKonsultasiMedik,MnSkriningMerokokUsiaSekolahRemaja,MnSkriningKekerasanPadaWanita,MnSkriningObesitas,
             MnSkriningRisikoKankerPayudara,MnSkriningRisikoKankerParu;
     private javax.swing.JMenu MnHasilUSG,MnHasilEndoskopi,MnRMSkrining;
+    private javax.swing.JLabel nomor_antrian;
+    private widget.Button Panggil;
+    private widget.Label sisa_antrian;
+    private javax.swing.JComboBox<String> loket_antrian;
+    private widget.Button Ulang;
+    private widget.Button btn_riwayat;
+    private widget.Label Label_Sisa_Antrian;
+    private widget.Label Label_Loket;
+    private widget.Button BtnPanggilPasien;
+    
     
     private void tampil() {
         Valid.tabelKosong(tabMode);   
@@ -16292,6 +16519,8 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
             } 
             emptTeks();                
         }  
+        
+          Sequel.menyimpan2("antripendaftaran","'"+nomor_antrian.getText()+"','"+TNoRw.getText()+"','"+Sequel.cariIsi("select jam from antripendaftaran_nomor where nomor='"+nomor_antrian.getText()+"' and date_format(jam, '%Y-%m-%d')=current_date")+"','"+Valid.SetTgl(DTPReg.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"'","nomor");        
     }
 
     private void billingprasial() {
@@ -16741,6 +16970,18 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnRMSkrining.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRMSkrining.setName("MnRMSkrining"); 
         MnRMSkrining.setPreferredSize(new java.awt.Dimension(200, 26));
+        
+        ///////////////////////////PENAMBAHAN BARU/////////////////////////////////////
+        
+        
+      
+
+        
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        
         
         MnRMOperasi.add(MnPenilaianPreInduksi);
 	MnRMOperasi.add(MnChecklistPreOperasi);

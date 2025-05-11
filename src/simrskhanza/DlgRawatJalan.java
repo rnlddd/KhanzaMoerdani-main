@@ -79,6 +79,7 @@ import rekammedis.RMDataCatatanObservasiInduksiPersalinan;
 import rekammedis.RMDataMonitoringAsuhanGizi;
 import rekammedis.RMDataMonitoringReaksiTranfusi;
 import rekammedis.RMDataResumePasien;
+import rekammedis.RMDataResumePasienRanap;
 import rekammedis.RMDataSkriningGiziLanjut;
 import rekammedis.RMEdukasiPasienKeluargaRawatJalan;
 import rekammedis.RMHasilEndoskopiFaringLaring;
@@ -195,7 +196,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             Suspen_Piutang_Tindakan_Ralan="",Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",
             Beban_Jasa_Medik_Paramedis_Tindakan_Ralan="",Utang_Jasa_Medik_Paramedis_Tindakan_Ralan="",Beban_KSO_Tindakan_Ralan="",Utang_KSO_Tindakan_Ralan="",
             Beban_Jasa_Sarana_Tindakan_Ralan="",Utang_Jasa_Sarana_Tindakan_Ralan="",HPP_BHP_Tindakan_Ralan="",Persediaan_BHP_Tindakan_Ralan="",
-            Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",variabel="";
+            Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",variabel="",poli="";
     private boolean[] pilih; 
     private String[] kode,nama,kategori;
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
@@ -1680,6 +1681,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnHasilPengobatan1 = new widget.Button();
         BtnReviewSEP = new widget.Button();
         BtnInputTerimaPasienAntarRuang = new widget.Button();
+        BtnInputKonsul2 = new widget.Button();
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -2680,6 +2682,25 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         });
         panelGlass12.add(Btn5Soap);
         Btn5Soap.setBounds(374, 40, 28, 23);
+        
+        
+        BtnInputKonsul2.setForeground(new java.awt.Color(0, 0, 0));
+        BtnInputKonsul2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Edit.png"))); // NOI18N
+        BtnInputKonsul2.setMnemonic('4');
+        BtnInputKonsul2.setText("Resume Pasien");
+        BtnInputKonsul2.setToolTipText("");
+        BtnInputKonsul2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnInputKonsul2.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnInputKonsul2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnInputKonsul2.setName("BtnInputKonsul2"); // NOI18N
+        BtnInputKonsul2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnInputKonsul2ActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnInputKonsul2);
+        BtnInputKonsul2.setBounds(920, 220, 160, 26);
+        
         
         
         Btn5Soap1.setForeground(new java.awt.Color(0, 0, 0));
@@ -9647,6 +9668,39 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    
+     private void BtnInputKonsul2ActionPerformed(java.awt.event.ActionEvent evt) {                                                
+       if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMDataResumePasien resume=new RMDataResumePasien(null,false);
+            resume.isCek();
+            resume.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            resume.setLocationRelativeTo(internalFrame1);
+            resume.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            resume.tampil();
+            resume.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }        // TODO add your handling code here:
+    }    
+    
+     private void BtnPanggilPasienActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
+        if(TNoRw.getText().trim().equals("")||TNoRM.getText().trim().equals("")){
+            Valid.textKosong(TNoRw,"No Rawat dan No RM");
+        }else{
+            Sequel.queryu("delete from antripoli where kd_dokter='"+KdDok.getText()+"' and kd_poli='"+poli+"'");
+            Sequel.queryu("insert into antripoli values('"+KdDok.getText()+"','"+poli+"','1','"+TNoRw.getText()+"')");
+        }
+    }                                                
+
+    private void BtnPanggilPasienKeyPressed(java.awt.event.KeyEvent evt) {                                            
+        // TODO add your handling code here:
+    }                            
+    
+    
     /**
     * @param args the command line arguments
     */
@@ -9667,6 +9721,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button Btn5Soap;
     private widget.Button Btn5Soap1;
     private widget.Button Btn5Soap2;
+    private widget.Button BtnInputKonsul2;
     private widget.Button BtnInputTerimaPasienAntarRuang;
     private widget.Button BtnAll;
     private widget.Button BtnAsuhanGizi;
@@ -10005,6 +10060,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbTindakan3;
     private widget.TextBox TanggalRegistrasi;
     private widget.Button BtnReviewSEP;
+    private widget.Button BtnPanggilPasien;
     // End of variables declaration//GEN-END:variables
     private widget.Button BtnSkorBromagePascaAnestesi,BtnPenilaianPreInduksi,BtnHasilPemeriksaanUSGUrologi,BtnHasilPemeriksaanUSGGynecologi,BtnHasilPemeriksaanEKG,BtnPenatalaksanaanTerapiOkupasi,BtnPenilaianPsikolog,
                           BtnHasilPemeriksaanUSGNeonatus,BtnHasilEndoskopiFaringLaring,BtnHasilEndoskopiHidung,BtnHasilEndoskopiTelinga,BtnPenilaianPasienImunitasRendah,BtnCatatanKeseimbanganCairan,BtnCatatanObservasiCHBP,
@@ -12007,6 +12063,27 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     }
     
     private void initRawatJalan(){
+        
+        BtnPanggilPasien = new widget.Button();
+        BtnPanggilPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/man1-24.png"))); // NOI18N
+        BtnPanggilPasien.setMnemonic('S');
+        BtnPanggilPasien.setText("Panggil Pasien");
+        BtnPanggilPasien.setToolTipText("Alt+S");
+        BtnPanggilPasien.setName("BtnPanggilPasien"); // NOI18N
+        BtnPanggilPasien.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnPanggilPasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPanggilPasienActionPerformed(evt);
+            }
+        });
+        BtnPanggilPasien.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnPanggilPasienKeyPressed(evt);
+            }
+        });
+        FormInput.add(BtnPanggilPasien);
+        BtnPanggilPasien.setBounds(930, 10, 130, 30);
+        
         BtnSkorBromagePascaAnestesi = new widget.Button();
         BtnSkorBromagePascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
         BtnSkorBromagePascaAnestesi.setText("Skor Bromage Pasca Anestesi");
@@ -12369,6 +12446,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         });
         panelGlass12.add(BtnInputTerimaPasienAntarRuang);
         BtnInputTerimaPasienAntarRuang.setBounds(920, 190, 160, 26);
+        
+        
+
         
         
         FormMenu.add(BtnRiwayat);

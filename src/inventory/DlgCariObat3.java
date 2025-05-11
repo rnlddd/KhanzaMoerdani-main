@@ -93,7 +93,8 @@ public final class DlgCariObat3 extends javax.swing.JDialog {
         for (i = 0; i < 40; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(20);
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }else if(i==1){
                 column.setPreferredWidth(90);
             }else if(i==2){

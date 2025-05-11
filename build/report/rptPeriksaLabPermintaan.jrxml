@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="522" leftMargin="56" rightMargin="17" topMargin="20" bottomMargin="20" uuid="5353c680-200b-4a22-8b8e-b6d4e4a440d6">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
@@ -87,7 +87,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="231" splitType="Stretch">
+		<band height="241" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField isBlankWhenNull="true">
 				<reportElement x="2" y="14" width="520" height="25" forecolor="#000000" backcolor="#00FF00" uuid="691f710d-8e6d-4f49-9a64-c6e099ca0c46"/>
@@ -226,7 +226,7 @@
 				<text><![CDATA[JK/Umur]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="101" y="144" width="35" height="15" uuid="56af9c9d-2723-4bdd-aeb7-88fc050fa0fb"/>
+				<reportElement x="101" y="144" width="19" height="15" uuid="56af9c9d-2723-4bdd-aeb7-88fc050fa0fb"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
@@ -286,7 +286,7 @@
 				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Transparent" x="136" y="144" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC" uuid="e05c6124-4bb3-4421-9042-c182ec35132c"/>
+				<reportElement mode="Transparent" x="120" y="144" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC" uuid="e05c6124-4bb3-4421-9042-c182ec35132c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -294,7 +294,7 @@
 				<text><![CDATA[/]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="146" y="144" width="83" height="15" uuid="b0d88ffc-cf60-4ef1-b844-1f47f29f7e07"/>
+				<reportElement x="130" y="144" width="83" height="15" uuid="b0d88ffc-cf60-4ef1-b844-1f47f29f7e07"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
@@ -362,8 +362,8 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="385" y="189" width="136" height="15" uuid="977e9a01-cb42-416d-93b8-4df6135c5e03"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="385" y="189" width="136" height="31" uuid="977e9a01-cb42-416d-93b8-4df6135c5e03"/>
+				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
@@ -390,7 +390,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement mode="Transparent" x="1" y="213" width="133" height="18" forecolor="#000000" backcolor="#F0F0DC" uuid="6c8d6e99-26ff-45da-a031-1b888a974ed4"/>
+				<reportElement mode="Opaque" x="1" y="223" width="133" height="18" forecolor="#000000" backcolor="#A1E3AD" uuid="6c8d6e99-26ff-45da-a031-1b888a974ed4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -398,7 +398,7 @@
 				<text><![CDATA[Pemeriksaan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="293" y="213" width="153" height="18" forecolor="#000000" backcolor="#F0F0DC" uuid="7a588b36-d2c6-488b-a65e-ef3e97aabf16"/>
+				<reportElement mode="Opaque" x="293" y="223" width="153" height="18" forecolor="#000000" backcolor="#A1E3AD" uuid="7a588b36-d2c6-488b-a65e-ef3e97aabf16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -406,7 +406,7 @@
 				<text><![CDATA[Nilai Rujukan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="446" y="213" width="75" height="18" forecolor="#000000" backcolor="#F0F0DC" uuid="53925f40-a0c5-4c9d-8b6a-2173f8409f69"/>
+				<reportElement mode="Opaque" x="446" y="223" width="75" height="18" forecolor="#000000" backcolor="#A1E3AD" uuid="53925f40-a0c5-4c9d-8b6a-2173f8409f69"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -414,7 +414,7 @@
 				<text><![CDATA[Keterangan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="135" y="213" width="81" height="18" forecolor="#000000" backcolor="#F0F0DC" uuid="25500430-7156-4af5-bb54-91661dae69d0"/>
+				<reportElement mode="Opaque" x="135" y="223" width="81" height="18" forecolor="#000000" backcolor="#A1E3AD" uuid="25500430-7156-4af5-bb54-91661dae69d0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -422,7 +422,7 @@
 				<text><![CDATA[Hasil]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="217" y="213" width="75" height="18" forecolor="#000000" backcolor="#F0F0DC" uuid="a8447d13-e15d-43ce-91b1-48a64e30c45f"/>
+				<reportElement mode="Opaque" x="217" y="223" width="75" height="18" forecolor="#000000" backcolor="#A1E3AD" uuid="a8447d13-e15d-43ce-91b1-48a64e30c45f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -430,49 +430,49 @@
 				<text><![CDATA[Satuan]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="213" width="520" height="1" uuid="9daca25f-1046-433e-9772-e904553d1007"/>
+				<reportElement x="1" y="223" width="520" height="1" uuid="9daca25f-1046-433e-9772-e904553d1007"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="1" y="230" width="520" height="1" uuid="cd9bb57e-faf7-4c86-b3d8-3591706dc5c1"/>
+				<reportElement x="1" y="240" width="520" height="1" uuid="cd9bb57e-faf7-4c86-b3d8-3591706dc5c1"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="0" y="214" width="1" height="16" uuid="8a95af89-4d1f-4a5e-bfb9-5fc7213b4c14"/>
+				<reportElement x="0" y="224" width="1" height="16" uuid="8a95af89-4d1f-4a5e-bfb9-5fc7213b4c14"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="134" y="214" width="1" height="16" uuid="30bcbf60-a8a5-4425-a91b-a50280061cdb"/>
+				<reportElement mode="Opaque" x="134" y="224" width="1" height="16" backcolor="#A1E3AD" uuid="30bcbf60-a8a5-4425-a91b-a50280061cdb"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="216" y="214" width="1" height="16" uuid="fc917c18-27c0-4ce7-a069-019abf4c190e"/>
+				<reportElement mode="Opaque" x="216" y="224" width="1" height="16" backcolor="#A1E3AD" uuid="fc917c18-27c0-4ce7-a069-019abf4c190e"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="292" y="214" width="1" height="16" uuid="e572fb4f-9221-4759-9d5e-eee4fc206ef8"/>
+				<reportElement mode="Opaque" x="292" y="224" width="1" height="16" backcolor="#A1E3AD" uuid="e572fb4f-9221-4759-9d5e-eee4fc206ef8"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="446" y="214" width="1" height="16" uuid="dfa3cd8a-6444-4b03-a8d2-8c4881ce9e02"/>
+				<reportElement mode="Opaque" x="446" y="224" width="1" height="16" backcolor="#A1E3AD" uuid="dfa3cd8a-6444-4b03-a8d2-8c4881ce9e02"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="521" y="214" width="1" height="16" uuid="174bb5d6-7e37-4af2-9647-a46d023cfd17"/>
+				<reportElement mode="Opaque" x="521" y="224" width="1" height="16" backcolor="#A1E3AD" uuid="174bb5d6-7e37-4af2-9647-a46d023cfd17"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
